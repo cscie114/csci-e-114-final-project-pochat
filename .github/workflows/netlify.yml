@@ -28,5 +28,7 @@ jobs:
         timeout-minutes: 1
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
+      - name: Netlify Build
+        run: netlify build --auth=${{ secrets.NETLIFY_AUTH_TOKEN }} 
       - name: Deploy to Netlify using CLI
         run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod
