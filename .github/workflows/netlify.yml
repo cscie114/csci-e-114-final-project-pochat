@@ -13,7 +13,6 @@ jobs:
 
       - run: npm ci
       - run: npm run build
-      - run: npm run generate
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
