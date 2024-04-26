@@ -14,7 +14,7 @@ jobs:
       # ( Build to ./dist or other directory... )
 
       - run: npm ci
-      - run: nmp run build
+      - run: npm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
