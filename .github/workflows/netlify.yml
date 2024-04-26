@@ -1,32 +1,32 @@
-name: 'Netlify Marios workflow'
-
+# .github/workflows/netlify.yml
+name: Build and Deploy to Netlify
+env:
+  YOUTUBE_API: ${{ secrets.YOUTUBE_API }}
 on:
   push:
-    branches:
-      - main
-
+  pull_request:
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
+  build:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.10.0
+      # ( Build to ./dist or other directory... )
 
       - run: npm ci
-
       - run: npm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: dist
+          publish-dir: 'dist/client'
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID:  ${{ secrets.NETLIFY_SITE_ID }}
-
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
