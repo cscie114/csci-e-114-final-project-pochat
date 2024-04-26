@@ -15,7 +15,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: './public'
+          publish-dir: './dist'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
@@ -28,8 +28,8 @@ jobs:
         timeout-minutes: 1
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
-      - name: Netlify init
-        run: netlify init
+      - name: Netlify Link
+        run: npx netlify link  --auth=${{ secrets.NETLIFY_AUTH_TOKEN }} --id ${{ secrets.NETLIFY_SITE_ID }}
       - name: Netlify Build
         run: netlify build --auth=${{ secrets.NETLIFY_AUTH_TOKEN }} 
       - name: Deploy to Netlify using CLI
