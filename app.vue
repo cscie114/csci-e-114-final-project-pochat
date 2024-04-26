@@ -1,5 +1,5 @@
 <template>
   <div>
-    <NuxtWelcome />
+    Mario was here
   </div>
 </template>
