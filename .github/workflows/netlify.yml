@@ -12,13 +12,12 @@ jobs:
       # ( Build to ./dist or other directory... )
 
       - run: npm install
-      - run: npm run generate
       - run: npm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: './dist'
+          publish-dir: 'dist'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
