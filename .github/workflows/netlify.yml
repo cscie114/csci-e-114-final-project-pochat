@@ -15,6 +15,8 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+      - run: npx cross-env NITRO_PRESET=netlify npm run build
+
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
