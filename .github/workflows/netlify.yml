@@ -11,7 +11,7 @@ jobs:
 
       # ( Build to ./dist or other directory... )
 
-      - run: npm install
+      - run: npm cli
       - run: npm run generate
 
       - name: Deploy to Netlify

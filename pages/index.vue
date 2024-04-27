@@ -1,5 +1,7 @@
 <script setup>
 
+const allgood = 5;
+
 </script>
 
 <template>
