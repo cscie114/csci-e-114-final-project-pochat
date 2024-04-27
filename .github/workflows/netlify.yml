@@ -11,6 +11,18 @@ jobs:
 
       # ( Build to ./dist or other directory... )
 
+      - name: Clean install
+        run: npm ci 
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate
+        run: npm run generate
+
+      - name: Build Nuxt app
+        run: npm run build
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
