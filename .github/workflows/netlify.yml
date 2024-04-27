@@ -1,28 +1,28 @@
-# .github/workflows/netlify.yml
-name: Build and Deploy to Netlify
-env:
-  YOUTUBE_API: ${{ secrets.YOUTUBE_API }}
+name: Netlify Production
+
+# Controls when the workflow will run
 on:
   push:
   pull_request:
+
 jobs:
   build:
     runs-on: ubuntu-22.04
+
     steps:
       - uses: actions/checkout@v4
 
-      # ( Build to ./dist or other directory... )
+      - name: 🛠️ Install dependencies with Yarn
+        run: yarn install
 
-      - run: npm ci
-      - run: npm run build
-      - run: npx cross-env NITRO_PRESET=netlify npm run build
-
+      - name: 🛠️ Build the site with Yarn
+        run: yarn build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: './dist'
-          production-branch: main
+          production-branch: main  # Ensure this matches your production branch name
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
