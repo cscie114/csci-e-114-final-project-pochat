@@ -24,7 +24,7 @@ jobs:
       - name: Build Nuxt app
         run: npm run build
 
-      - name: Deploy and link to Netlify
+      - name: Linked Deploy to Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
