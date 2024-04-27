@@ -2,32 +2,40 @@ name: Netlify Production
 
 # Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
+    branches: [main]
   pull_request:
+    branches: [main]
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This workflow contains a single job called "build"
   build:
-    runs-on: ubuntu-22.04
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v4
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        name: 🛒 "Checkout Source code"
 
-      - name: 🛠️ Install dependencies with Yarn
-        run: yarn install
+      - name: ✨ Setup Node.js environment
+        uses: actions/setup-node@v3.1.1
 
-      - name: 🛠️ Build the site with Yarn
-        run: npx cross-env NITRO_PRESET=netlify yarn build
+      - name: 🛠️ Build the site
+        run: |
+          yarn install
+          npx cross-env NITRO_PRESET=netlify yarn build
 
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v3.0
+      - name: 🚀 Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2.3
         with:
-          publish-dir: 'dist'
-          production-branch: main  # Ensure this matches your production branch name
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
-          enable-pull-request-comment: false
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
+          publish-dir: "dist"
+          # functions-dir: ".netlify/functions/server"
+          production-branch: main
+          deploy-message: "${{ github.event.head_commit.message }}"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
