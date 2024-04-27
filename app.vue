@@ -1,5 +1,5 @@
 <template>
   <div>
-    Mario 3rd attempt, replaced Yarn.
+    Mario nuxt install Apr 27 11:38AM
   </div>
 </template>
