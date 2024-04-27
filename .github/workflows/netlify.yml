@@ -17,11 +17,11 @@ jobs:
           npm install
           npx cross-env NITRO_PRESET=netlify npm run build
 
-      - name: 🚀 Deploy to Netlify
+      - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: './dist'
-          production-branch: master
+          production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: false
