@@ -1,42 +1,35 @@
-name: Netlify Production
+name: CI
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches:
+      - main
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    name: Build 🏗️
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-        name: 🛒 "Checkout Source code"
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: ✨ Setup Node.js environment
-        uses: actions/setup-node@v3.1.1
-
-      - name: 🛠️ Build the site
-        run: |
-          yarn install
-          npx cross-env NITRO_PRESET=netlify yarn build
-
-      - name: 🚀 Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.2.3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          publish-dir: "dist"
-          # functions-dir: ".netlify/functions/server"
-          production-branch: main
-          deploy-message: "${{ github.event.head_commit.message }}"
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy web app from main branch 🚀
+        if: github.ref_type == 'tag'
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=./dist/web -p
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 1
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
