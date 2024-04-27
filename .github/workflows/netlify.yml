@@ -15,8 +15,8 @@ jobs:
         with:
           node-version: 16
 
-      - name: Clean
-        run: npm ci
+      - name: Clean (assuming you want to clean before install)
+        run: npm ci  # Assuming you want to use npm ci for clean install
 
       - name: Install dependencies
         run: npm install
@@ -28,5 +28,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod
+        timeout-minutes: 1
+
+        run: netlify deploy --prod
 
