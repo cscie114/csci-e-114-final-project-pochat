@@ -1,21 +1,20 @@
-name: Netlify Production
-
-# Controls when the workflow will run
+# .github/workflows/netlify.yml
+name: Build and Deploy to Netlify
+env:
+  YOUTUBE_API: ${{ secrets.YOUTUBE_API }}
 on:
   push:
   pull_request:
-
 jobs:
   build:
     runs-on: ubuntu-22.04
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: 🛠️ Build the site
-        run: |
-          npm install
-          npx cross-env NITRO_PRESET=netlify npm run build
+      # ( Build to ./dist or other directory... )
+
+      - run: npm ci
+      - run: npm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
