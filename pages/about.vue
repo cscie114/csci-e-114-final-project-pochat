@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <h1>This is the about page</h1>
+  <h1 class="mt-20">This is the about page</h1>
   
 </template>
 

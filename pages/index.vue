@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <h1>
+  <h1 class="mt-20">
     This is the index page
   </h1>
   
