@@ -1,5 +1,5 @@
 <template>
   <div>
-    Mario nuxt install Apr 27 11:43AM
+    <NuxtPage/>
   </div>
 </template>
