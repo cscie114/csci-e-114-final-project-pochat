@@ -16,7 +16,7 @@ jobs:
           node-version: 16
 
       - name: Clean (assuming you want to clean before install)
-        run: npm ci  # Assuming you want to use npm ci for clean install
+        run: npm ci 
 
       - name: Install dependencies
         run: npm install
