@@ -16,7 +16,7 @@ jobs:
         run: yarn install
 
       - name: 🛠️ Build the site with Yarn
-        run: yarn build
+        run: npx cross-env NITRO_PRESET=netlify yarn build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
