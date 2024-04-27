@@ -18,7 +18,7 @@ jobs:
           npx cross-env NITRO_PRESET=netlify npm run build
 
       - name: 🚀 Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.2.3
+        uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: './dist'
           production-branch: master
