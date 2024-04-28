@@ -1,5 +1,5 @@
 <script setup>
-import {useFetch, useRuntimeConfig} from "nuxt/app";
+import { useFetch, useRuntimeConfig } from "nuxt/app";
 
 const config = useRuntimeConfig();
 
@@ -7,7 +7,7 @@ const config = useRuntimeConfig();
 
     try {
       console.log("config.youTubeApi", config.youTubeApi);
-      const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUQeRaTukNYft1_6AZPACnog&key=AIzaSyBabGf2NG8T52Y5b29WU6sU8OCkTk2vTwQ`);
+      const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUQeRaTukNYft1_6AZPACnog&key=${YOUTUBE_API}`);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
