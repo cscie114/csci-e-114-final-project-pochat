@@ -29,6 +29,9 @@ const YOUTUBE_API = useRuntimeConfig().public.YOUTUBE_API;
 <template>
   <div>
     <h1>Animation Channel</h1>
+
+    {{  youTubeData.items[1].snippet.title }}
+
     <!-- <p>{{ config.public.youTubeApi }}</p> -->
     <!-- <p>{{ youTubeData.items[1].snippet.title }}</p> -->
   </div>
