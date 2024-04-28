@@ -1,35 +1,31 @@
 <script setup>
-import {useFetch, useRuntimeConfig} from "nuxt/app";
-
-const YOUTUBE_API = process.env.YOUTUBE_API;
+import { useRuntimeConfig } from "nuxt/app";
 
 const config = useRuntimeConfig();
 
+const YOUTUBE_API = config.public.youTubeApi;
 
-console.log("Log outside YOUTUBE_API:", YOUTUBE_API);
-
-  const fetchData = async () => {
-
-    try {
-      console.log("log inside try: YOUTUBE_API", YOUTUBE_API);
-      const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUQeRaTukNYft1_6AZPACnog&key=${YOUTUBE_API}`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      const data = await response.json();
-      console.log('data', data);
-      return data;
-    } catch (error) {
-      console.error(error);
-      return null; 
+const fetchData = async () => {
+  try {
+    console.log("log inside try: YOUTUBE_API", YOUTUBE_API);
+    const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUQeRaTukNYft1_6AZPACnog&key=${YOUTUBE_API}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
     }
-  };
+    const data = await response.json();
+    console.log('data', data);
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null; 
+  }
+};
 
-  const youTubeData = await fetchData();
+const youTubeData = await fetchData();
 
-  console.log('youTubeData', youTubeData);
-
+console.log('youTubeData', youTubeData);
 </script>
+
 
 <template>
   <div>
