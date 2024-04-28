@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   ],
 
   build: {
-    ssr: false // Enables Static Site Generation (SSG)
+    ssr: true // Enables Static Site Generation (SSG)
   },
 
   runtimeConfig: {

@@ -16,14 +16,13 @@ jobs:
 
       - run: npm install # note: npm ci does not work
       - run: npm run build
-      - run: npm run generate
       - run: npm run test
       - run: npm run lint
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: '.output/public'
+          publish-dir: '.output/server'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
