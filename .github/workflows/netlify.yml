@@ -1,7 +1,7 @@
 
 name: Build and Deploy to Netlify
 env:
-  YOUTUBE_API: ${{ secrets.YOUTUBE_API  }}
+  config.youTubeApi: ${{ secrets.YOUTUBE_API  }}
 on:
   push:
   pull_request:
@@ -15,14 +15,14 @@ jobs:
       
 
       - run: npm install # note: npm ci does not work
-      - run: npm run build
       - run: npm run test
       - run: npm run lint
+      - run: npm run generate
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: '.output/server'
+          publish-dir: '.output/public'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
