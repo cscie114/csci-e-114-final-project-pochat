@@ -13,7 +13,7 @@ const allGood = 5
     <p>All good is {{ allGood }}</p>
     <div class="text-2xl">
       <HelloWorld/>
-      <AnimationYT/>
+      <!-- <AnimationYT/> -->
     </div>
   </div>
 </template>
