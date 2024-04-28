@@ -6,7 +6,7 @@ const config = useRuntimeConfig();
   const fetchData = async () => {
 
     try {
-      console.log("config.youTubeApi", config.youTubeApi);
+      console.log("log: config.public.youTubeApi", config.public.youTubeApi);
       const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUQeRaTukNYft1_6AZPACnog&key=${config.public.youTubeApi}`);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
