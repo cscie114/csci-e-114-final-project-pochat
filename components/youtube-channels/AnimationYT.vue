@@ -7,7 +7,7 @@ const config = useRuntimeConfig();
 
     try {
       console.log("config.youTubeApi", config.youTubeApi);
-      const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUQeRaTukNYft1_6AZPACnog&key=${config.public.youTubeApi}`);
+      const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUQeRaTukNYft1_6AZPACnog&key=${config.public.YOUTUBE_API}`);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
@@ -29,7 +29,7 @@ const config = useRuntimeConfig();
 <template>
   <div>
     <h1>Animation Channel</h1>
-    <p>{{ config.public.youTubeApi }}</p>
+    <!-- <p>{{ config.public.youTubeApi }}</p> -->
     <p>{{ youTubeData.items[1].snippet.title }}</p>
   </div>
 
