@@ -3,6 +3,8 @@ import {useFetch, useRuntimeConfig} from "nuxt/app";
 
 const config = useRuntimeConfig();
 
+console.log("YOUTUBE_API:", YOUTUBE_API);
+
   const fetchData = async () => {
 
     try {
