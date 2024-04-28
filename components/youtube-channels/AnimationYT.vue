@@ -1,9 +1,10 @@
 <script setup>
 import {useFetch, useRuntimeConfig} from "nuxt/app";
 
+const YOUTUBE_API = process.env.YOUTUBE_API;
+
 const config = useRuntimeConfig();
 
-const YOUTUBE_API = config.public.youTubeApi
 
 console.log("Log outside YOUTUBE_API:", YOUTUBE_API);
 
