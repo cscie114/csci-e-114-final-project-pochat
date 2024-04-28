@@ -1,7 +1,7 @@
 
 name: Build and Deploy to Netlify
 env:
-  YOUTUBE_API: ${{ secrets.YOUTUBE_API }}
+  config.public.youTubeApi: ${{ secrets.YOUTUBE_API  }}
 on:
   push:
   pull_request:
