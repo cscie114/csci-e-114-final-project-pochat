@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      YOUTUBE_API: process.env.YOUTUBE_API, // Exposes YouTube API key
+      youTubeApi: process.env.YOUTUBE_API, // Exposes YouTube API key
       channelId: process.env.CHANNEL_ID,   // (Optional) Additional config
       uploadsId: process.env.UPLOADS_ID,    // (Optional) Additional config
     }

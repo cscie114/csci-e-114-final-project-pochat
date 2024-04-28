@@ -1,7 +1,7 @@
 
 name: Build and Deploy to Netlify
 env:
-  config.public.youTubeApi: ${{ secrets.YOUTUBE_API  }}
+  YOUTUBE_API: ${{ secrets.YOUTUBE_API  }}
 on:
   push:
   pull_request:
@@ -15,9 +15,9 @@ jobs:
       
 
       - run: npm install # note: npm ci does not work
+      - run: npm run generate
       - run: npm run test
       - run: npm run lint
-      - run: npm run generate
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
