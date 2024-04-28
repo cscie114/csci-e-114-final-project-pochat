@@ -3,13 +3,11 @@ import {useFetch, useRuntimeConfig} from "nuxt/app";
 
 const config = useRuntimeConfig();
 
-console.log("YOUTUBE_API:", YOUTUBE_API);
-
   const fetchData = async () => {
 
     try {
-      console.log("log: config.public.youTubeApi", config.public.youTubeApi);
-      const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUQeRaTukNYft1_6AZPACnog&key=${config.public.youTubeApi}`);
+      console.log("log: config.public.youTubeApi", YOUTUBE_API);
+      const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUQeRaTukNYft1_6AZPACnog&key=${YOUTUBE_API}`);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
