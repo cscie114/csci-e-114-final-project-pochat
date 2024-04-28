@@ -16,6 +16,7 @@ jobs:
 
       - run: npm install # note: npm ci does not work
       - run: npm run build
+      - run: npm run generate
       - run: npm run test
       - run: npm run lint
 
