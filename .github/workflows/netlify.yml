@@ -13,7 +13,6 @@ jobs:
 
       # ( Build to ./dist or other directory... )
       
-
       - run: npm install # note: npm ci does not work
       - run: npm run test
       - run: npm run lint
