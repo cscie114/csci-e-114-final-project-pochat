@@ -1,15 +1,5 @@
 <script setup>
 import { useRuntimeConfig } from "nuxt/app";
-import { formatDistanceToNow } from 'date-fns';
-import { parseISO } from 'date-fns';
-
-// Format date
-const formatPublishedDate = (date) => {
-  // Parse the date string to a Date object
-  const parsedDate = parseISO(date);
-  // Calculate the distance to now in a human-readable format
-  return formatDistanceToNow(parsedDate, { addSuffix: true });
-};
 
 //These ids are publicly available. No need to store them in the .env file
 const channelId = 'UC_IRYSp4auq7hKLvziWVH6w'
