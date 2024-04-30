@@ -39,11 +39,7 @@ const youTubeData = await fetchData();
         <div class="video-container">
           <iframe
             class="absolute inset-0 w-full h-full"
-            :src="videoUrl"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            title="YouTube video player"
+            :src="videoUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
           >
           </iframe>
         </div>
@@ -54,23 +50,27 @@ const youTubeData = await fetchData();
 <p>The Video Id: {{ route.params.videoid }}</p>
       </div>
       <div class="w-1/3 bg-slate-600">
-        <p>Received Playlist IDs: {{ vanasPlayList }}</p>
         <p>Debug Information:</p>
         <pre>{{ $route.params }}</pre>
       </div>
     </div>
+
   </div>
 </template>
 
-<style>
+<style scoped>
 .video-container {
   padding-top: 56.25%; /* 16:9 aspect ratio */
   position: relative;
   overflow: hidden;
 }
-</style>
 
-
-<style scoped>
-
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Set a high z-index value */
+}
 </style>
