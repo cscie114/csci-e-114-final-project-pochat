@@ -1,5 +1,6 @@
 <script setup>
 import AnimationYT from '../components/youtube-channels/AnimationYT.vue'
+import PixarYT from '../components/youtube-channels/PixarYT.vue'
 
 const allGood = 5
 
@@ -14,6 +15,7 @@ const allGood = 5
     <div class="text-2xl">
       <HelloWorld />
       <AnimationYT />
+      <PixarYT />
     </div>
 
   </div>

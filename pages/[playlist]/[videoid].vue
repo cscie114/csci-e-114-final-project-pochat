@@ -1,12 +1,11 @@
 <script setup>
 import { useRuntimeConfig } from "nuxt/app";
 
-// Access route params
-const { id } = useRoute().params;
-
+// Access route params like videoId and playlistId
+const route = useRoute()
 
 // Embed video from YouTube
-const videoUrl = `https://www.youtube.com/embed/${id}`;
+const videoUrl = `https://www.youtube.com/embed/${route.params.videoid}`;
 
 // Access values from nuxt.config.ts
 const config = useRuntimeConfig();
@@ -17,7 +16,8 @@ const YOUTUBE_API = config.public.youTubeApi;
 // Fetch YouTube data
 const fetchData = async () => {
   try {
-    const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUrcg40cuUt7QZFUd-cOywPw&videoId=${id}&key=${YOUTUBE_API}`);
+    const response = await fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${route.params.playlist}&videoId=${route.params.videoid}&key=${YOUTUBE_API}`);
+
     if (!response.ok) {
       throw new Error('Failed to fetch data from API');
     }
@@ -50,7 +50,8 @@ const youTubeData = await fetchData();
         <div class="absolute inset-0 flex items-center justify-center">
         </div>
         {{ youTubeData.items[0].snippet.title }}
-
+<p>The playlist ID: {{ route.params.playlist }}</p>
+<p>The Video Id: {{ route.params.videoid }}</p>
       </div>
       <div class="w-1/3 bg-slate-600">
         <p>Received Playlist IDs: {{ vanasPlayList }}</p>

@@ -2,8 +2,8 @@
 import { useRuntimeConfig } from "nuxt/app";
 
 //These ids are publicly available. No need to store them in the .env file
-const channelId = 'UCrcg40cuUt7QZFUd-cOywPw'
-const channelPlaylistId = 'UUrcg40cuUt7QZFUd-cOywPw';
+const channelId = 'UCuaFvcY4MhZY3U43mMt1dYQ'
+const channelPlaylistId = 'UUuaFvcY4MhZY3U43mMt1dYQ';
 
 const config = useRuntimeConfig();
 
@@ -34,7 +34,7 @@ console.log('youTubeData', youTubeData);
 
 <template>
   <div>
-    <h1>VANAS Channel</h1>
+    <h1>Disney Channel</h1>
     <!-- <p>{{ config.public.youTubeApi }}</p> -->
     <!-- <p>{{ youTubeData.items[1].snippet.title }}</p> -->
   </div>
@@ -47,8 +47,6 @@ console.log('youTubeData', youTubeData);
         <img :src="video.snippet.thumbnails.medium.url" alt="Video Thumbnail">
         <p class="text-base font-bold inline-block w-[350px]">{{ video.snippet.title }}</p>
         <p class="text-sm text-gray-500">Video id: {{ video.snippet.resourceId.videoId }}</p>
-        <p class="text-base font-bold inline-block w-[350px]">{{ video.snippet.publishedAt }}</p>
-
       </a>
 <!-- 
       <NuxtLink :to="{ name: 'id', params: { id: video.snippet.resourceId.videoId, playlistId: playlistId } }">Click to see playlistId</NuxtLink> -->

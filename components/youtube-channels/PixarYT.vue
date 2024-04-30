@@ -1,9 +1,19 @@
 <script setup>
 import { useRuntimeConfig } from "nuxt/app";
+import { formatDistanceToNow } from 'date-fns';
+import { parseISO } from 'date-fns';
+
+// Format date
+const formatPublishedDate = (date) => {
+  // Parse the date string to a Date object
+  const parsedDate = parseISO(date);
+  // Calculate the distance to now in a human-readable format
+  return formatDistanceToNow(parsedDate, { addSuffix: true });
+};
 
 //These ids are publicly available. No need to store them in the .env file
-const channelId = 'UCrcg40cuUt7QZFUd-cOywPw'
-const channelPlaylistId = 'UUrcg40cuUt7QZFUd-cOywPw';
+const channelId = 'UC_IRYSp4auq7hKLvziWVH6w'
+const channelPlaylistId = 'UU_IRYSp4auq7hKLvziWVH6w';
 
 const config = useRuntimeConfig();
 
@@ -34,7 +44,7 @@ console.log('youTubeData', youTubeData);
 
 <template>
   <div>
-    <h1>VANAS Channel</h1>
+    <h1>Pixar Channel</h1>
     <!-- <p>{{ config.public.youTubeApi }}</p> -->
     <!-- <p>{{ youTubeData.items[1].snippet.title }}</p> -->
   </div>
