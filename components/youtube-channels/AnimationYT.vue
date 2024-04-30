@@ -1,12 +1,7 @@
 <script setup>
 import { useRuntimeConfig } from "nuxt/app";
 
-// Define props
-defineProps({
-  playlistId: String,
-});
-
-const playlistId = 'UUrcg40cuUt7QZFUd-cOywPw';
+const superPlaylist = 'UUrcg40cuUt7QZFUd-cOywPw';
 
 const config = useRuntimeConfig();
 
@@ -51,10 +46,9 @@ console.log('youTubeData', youTubeData);
         <p class="text-base font-bold inline-block w-[350px]">{{ video.snippet.title }}</p>
         <p class="text-sm text-gray-500">Video id: {{ video.snippet.resourceId.videoId }}</p>
       </a>
-      
-      <NuxtLink :to="{ name: 'id', params: { id: video.snippet.resourceId.videoId, playlistId: playlistId } }">Click to see playlistId</NuxtLink>
+<!-- 
+      <NuxtLink :to="{ name: 'id', params: { id: video.snippet.resourceId.videoId, playlistId: playlistId } }">Click to see playlistId</NuxtLink> -->
 
-    <p>    {{ playlistId }}</p>
     </div>
 
   </div>

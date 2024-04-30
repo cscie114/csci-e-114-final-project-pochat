@@ -2,9 +2,8 @@
 import { useRuntimeConfig } from "nuxt/app";
 
 // Access route params
-const { id, playlistId } = useRoute().params;
+const { id } = useRoute().params;
 
-console.log("playlistId:", playlistId);
 
 // Embed video from YouTube
 const videoUrl = `https://www.youtube.com/embed/${id}`;
@@ -33,7 +32,6 @@ const fetchData = async () => {
 const youTubeData = await fetchData();
 </script>
 
-
 <template>
   <div class="mt-10 justify-center bg-orange-100">
     <div class="flex">
@@ -55,8 +53,7 @@ const youTubeData = await fetchData();
 
       </div>
       <div class="w-1/3 bg-slate-600">
-        Right div:holas  {{ playlistId }}
-        <p>Received Playlist ID: {{ playlistId }}</p>
+        <p>Received Playlist IDs: {{ vanasPlayList }}</p>
         <p>Debug Information:</p>
         <pre>{{ $route.params }}</pre>
       </div>
