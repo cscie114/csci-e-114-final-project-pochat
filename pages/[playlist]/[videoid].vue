@@ -1,5 +1,6 @@
 <script setup>
 import { useRuntimeConfig } from "nuxt/app";
+import AnimationYT from "~/components/youtube-channels/AnimationYT.vue";
 
 // Access route params like videoId and playlistId
 const route = useRoute()
@@ -49,10 +50,12 @@ const youTubeData = await fetchData();
 <p>The playlist ID: {{ route.params.playlist }}</p>
 <p>The Video Id: {{ route.params.videoid }}</p>
       </div>
-      <div class="w-1/3 bg-slate-600">
+      <div class="w-1/3 bg-slate-500">
         <p>Debug Information:</p>
         <pre>{{ $route.params }}</pre>
+        <AnimationYT />
       </div>
+ 
     </div>
 
   </div>

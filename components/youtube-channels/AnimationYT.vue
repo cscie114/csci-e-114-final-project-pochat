@@ -43,7 +43,7 @@ console.log('youTubeData', youTubeData);
     <div v-for="(video, index) in youTubeData.items" :key="index">
       <img src="">
       <!-- <p>{{ youTubeData.items[index].snippet.title }}</p> -->
-      <a :href="`${channelPlaylistId}/${video.snippet.resourceId.videoId}`">
+      <a :href="`/${channelPlaylistId}/${video.snippet.resourceId.videoId}`">
         <img :src="video.snippet.thumbnails.medium.url" alt="Video Thumbnail">
         <p class="text-base font-bold inline-block w-[350px]">{{ video.snippet.title }}</p>
         <p class="text-sm text-gray-500">Video id: {{ video.snippet.resourceId.videoId }}</p>
