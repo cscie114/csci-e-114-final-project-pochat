@@ -1,6 +1,6 @@
 <script setup>
 import { useRuntimeConfig } from "nuxt/app";
-import AnimationYT from "~/components/youtube-channels/AnimationYT.vue";
+import RandomYT from "~/components/youtube-channels/RandomYT.vue";
 
 // Access route params like videoId and playlistId
 const route = useRoute()
@@ -53,7 +53,7 @@ const youTubeData = await fetchData();
       <div class="w-1/3 bg-slate-500">
         <p>Debug Information:</p>
         <pre>{{ $route.params }}</pre>
-        <AnimationYT />
+        <RandomYT />
       </div>
  
     </div>
