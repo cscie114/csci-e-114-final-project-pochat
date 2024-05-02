@@ -14,15 +14,16 @@ const allGood = 5
         This is the index page
     </h1>
     <p>All good is: {{ allGood }}</p>
-    <div class="text-2xl">
-      <!-- <HelloWorld /> -->
-      <!-- <AnimationYT /> -->
-      <!-- <PixarYT /> -->
-      <!-- <Xbox /> -->
-      <RandomYT />
-      <RandomYT />
-    </div>
-
+    <div class="flex justify-center">
+      <div>
+        <!-- <HelloWorld /> -->
+        <!-- <AnimationYT /> -->
+        <!-- <PixarYT /> -->
+        <!-- <Xbox /> -->
+        <RandomYT />
+        <RandomYT />
+      </div>
+    </div> 
   </div>
 </template>
 
