@@ -10,6 +10,9 @@ export const channelsPlaylistIds = {
     MAYA_LEARNING_CHANNEL_UPLOADS_ID: 'UUHmAXsicpLK2EHMZo5_BtDA',
 };
 
+
+// We only need the channel Ids to retrieve the upload Id. It's a good idea to keep them in this file to organize the project.
+
 export const channeIds = {
     VANAS_CHANNEL_ID: 'UCrcg40cuUt7QZFUd-cOywPw',
     WALT_DISNEY_ANIMATION_CHANNEL_ID: 'UC_976xMxPgzIa290Hqtk-9g',

@@ -9,9 +9,6 @@
         <li>
           <NuxtLink to="/about" class="hover:text-gray-400">About</NuxtLink>
         </li>
-        <li>
-          <NuxtLink to="/mario" class="hover:text-gray-400">Mario</NuxtLink>
-        </li>
       </ul>
     </div>
   </nav>

@@ -34,7 +34,7 @@ const youTubeData = await fetchData();
 </script>
 
 <template>
-  <div class="mt-10 justify-center">
+  <div class="mt-16 sm:mt-10 justify-center">
     <div class="flex">
       <div class="w-full">
         <div class="video-container">
