@@ -1,11 +1,15 @@
-import { it, expect, describe } from "vitest";
-import { mount } from '@vue/test-utils';
+// This test ensures the home page renders the RandomYT component. Otherwise, the page is blank.
 
-import HelloWorld from '../../components/HelloWorld.vue'
+import { describe, test, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
+import IndexPage from '@/pages/index.vue'
+import RandomYT from '~/components/youtube-channels/RandomYT.vue'
 
-describe('HelloWorld', () => {
-  it('Component renders hello world', () => {
-    const wrapper = mount(HelloWorld)
-    expect(wrapper.text()).toContain('Hello world')
+describe('Index Page', () => {
+  test('renders RandomYT component', async () => {
+    const wrapper = await mount(IndexPage)
+
+    // Ensure that RandomYT component is rendered
+    expect(wrapper.findComponent(RandomYT).exists()).toBe(true)
   })
 })
