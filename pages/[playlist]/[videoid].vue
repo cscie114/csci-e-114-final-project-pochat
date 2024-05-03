@@ -48,13 +48,14 @@ const youTubeData = await fetchData();
           >
           </iframe>
         </div>
-        <div class="absolute inset-0 flex items-center justify-center">
+        <div class="p-5 leading-6">
+          <h2 class="text-2xl mb-4">{{ youTubeData.items[0].snippet.title }}</h2>
+          <h2>{{ youTubeData.items[0].snippet.description }}</h2>
+          <!-- <p>The playlist ID: {{ route.params.playlist }}</p> -->
+          <!-- <p>The Video Id: {{ route.params.videoid }}</p> -->
         </div>
-        <h2 class="text-2xl">{{ youTubeData.items[0].snippet.title }}</h2>
-        <!-- <p>The playlist ID: {{ route.params.playlist }}</p> -->
-        <!-- <p>The Video Id: {{ route.params.videoid }}</p> -->
-        <div class="overflow-x-auto">
-          <!-- <RandomYT /> -->
+        <div class="lg:hidden">
+          <RandomYT />
         </div>
       </div>
     
