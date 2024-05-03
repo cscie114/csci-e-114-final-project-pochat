@@ -34,28 +34,36 @@ const youTubeData = await fetchData();
 </script>
 
 <template>
-  <div class="mt-10 justify-center bg-orange-100">
+  <div class="mt-10 justify-center">
     <div class="flex">
-      <div class="w-full bg-blue-500 relative">
+      <div class="w-full">
         <div class="video-container">
           <iframe
             class="absolute inset-0 w-full h-full"
-            :src="videoUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            :src="`${videoUrl}${videoUrl.includes('?') ? '&' : '?'}autoplay=1`"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            autoplay
           >
           </iframe>
         </div>
         <div class="absolute inset-0 flex items-center justify-center">
         </div>
-        {{ youTubeData.items[0].snippet.title }}
-<p>The playlist ID: {{ route.params.playlist }}</p>
-<p>The Video Id: {{ route.params.videoid }}</p>
+        <h2 class="text-2xl">{{ youTubeData.items[0].snippet.title }}</h2>
+        <!-- <p>The playlist ID: {{ route.params.playlist }}</p> -->
+        <!-- <p>The Video Id: {{ route.params.videoid }}</p> -->
+        <div class="overflow-x-auto">
+          <!-- <RandomYT /> -->
+        </div>
       </div>
-      <div class="w-1/3 bg-slate-500">
-        <p>Debug Information:</p>
-        <pre>{{ $route.params }}</pre>
-        <RandomYT />
+    
+      <div class="hidden lg:flex justify-center items-center w-1/3">
+          <div class="flex flex-wrap video-right-column">
+            <RandomYT />
+          </div>
       </div>
- 
+
     </div>
 
   </div>
@@ -63,7 +71,7 @@ const youTubeData = await fetchData();
 
 <style scoped>
 .video-container {
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 50.25%; /* 16:9 aspect ratio */
   position: relative;
   overflow: hidden;
 }
@@ -76,4 +84,9 @@ const youTubeData = await fetchData();
   height: 100%;
   z-index: 1; /* Set a high z-index value */
 }
+
+.video-right-column {
+  z-index: 2;
+}
+
 </style>

@@ -44,19 +44,16 @@ const fetchData = async () => {
 const youTubeData = await fetchData();
 console.log('youTubeData:', youTubeData);
 
-
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-2">
+  <div class="flex flex-col gap-2 justify-center m-auto items-center">
     <div v-for="(video, index) in youTubeData.items" :key="index">
-      <img src="">
-      <!-- <p>{{ youTubeData.items[index].snippet.title }}</p> -->
       <a :href="`/${finalRandomChannelPlaylistId}/${video.snippet.resourceId.videoId}`">
-        <img :src="video.snippet.thumbnails.medium.url" alt="Video Thumbnail">
-        <p class="text-base font-bold inline-block w-[350px]">{{ video.snippet.title }}</p>
-        <p class="text-sm text-gray-500">Video id: {{ video.snippet.resourceId.videoId }}</p>
-        <p class="text-base font-bold inline-block w-[350px]">{{ video.snippet.publishedAt }}</p>
+        <img :src="video.snippet.thumbnails.medium.url" alt="Video Thumbnail" class="rounded-lg border border-gray-300">
+        <p class="text-base font-bold inline-block w-[325px] truncate">{{ video.snippet.title }}</p>
+        <p class="text-base">{{ video.snippet.channelTitle }}</p>
+        <p class="text-base">{{ video.snippet.publishedAt }}</p>
       </a>
     </div>
   </div>
